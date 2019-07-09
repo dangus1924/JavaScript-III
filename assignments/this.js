@@ -41,8 +41,14 @@ console.lof(result.name);
 // Principle 4
 
 // code example for Explicit Binding
-Function StorageEvent(name, Location, hours) {
+function Company(name, location, hours) {
     this.name = name;
     this.location = location;
-    this. hours = hours;
+    this.hours = hours;
+}
+
+function Store(name, location, hours) {
+    Company.call(this, name, location, hours);
+    this.category = 'store';
+    console.log(`${this.name} is located at ${this.location} and it's hours are ${this.hours}.`);
 }
