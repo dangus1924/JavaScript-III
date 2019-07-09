@@ -1,8 +1,8 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. 
-* 2. 
+* 1. Window Binding is the Global context. It's when you call the function from the defualt window "consoloe.log(this)".
+* 2. Implicit Binding 
 * 3. 
 * 4. 
 *
