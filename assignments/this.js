@@ -12,15 +12,37 @@
 // Principle 1
 
 // code example for Window Binding
+console.log(this);
 
 // Principle 2
 
 // code example for Implicit Binding
+const grapes = { 
+    kind: "Red Grapes",
+    size: "Small",
+    amount: 10,
+    eat: function() {
+        return `${this.size} ${this.kind} comes in a bundle of ${this.amount}.`
+    }
+} 
 
 // Principle 3
 
 // code example for New Binding
-
+function foo() {
+    this.name = 'David';
+        this.say = function() {
+            return "I am" + this.name;
+        };
+}
+const name = 'Darren';
+const result = new foo();
+console.lof(result.name);
 // Principle 4
 
 // code example for Explicit Binding
+Function StorageEvent(name, Location, hours) {
+    this.name = name;
+    this.location = location;
+    this. hours = hours;
+}
