@@ -37,7 +37,7 @@ function foo() {
 }
 const name = 'Darren';
 const result = new foo();
-console.lof(result.name);
+console.log(result.name);
 // Principle 4
 
 // code example for Explicit Binding
