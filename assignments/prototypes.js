@@ -190,7 +190,7 @@ Humanoid.prototype.greet = function() {
     },
     hp: 40,
     name: 'Reddita',
-    faction: 'The Common Good',
+    team: 'The Common Good',
     weapons: [
       'Giant Sword',
       'Shield',
@@ -207,7 +207,7 @@ Humanoid.prototype.greet = function() {
     },
     hp: 15,
     name: 'Unfi',
-    faction: 'The Common Evil',
+    team: 'The Common Evil',
     weapons: [
       'Great Staff',
       'Orb of Destruction',
