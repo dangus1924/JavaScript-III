@@ -143,81 +143,81 @@ Humanoid.prototype.greet = function() {
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
 
-  function Hero(attr) {
-    Humanoid.call(this, attr);
-  }
+//   function Hero(attr) {
+//     Humanoid.call(this, attr);
+//   }
 
-  Hero.prototype = Object.create(Humanoid.prototype);
-
-  
-  Hero.prototype.heavySwing = function(target) {
-    console.log(`${this.name} takes a heavy swing at ${target.name}!`);
-    console.log(target.takeDamage(5));
-    return (target.hp < 1 ? target.destroy() : target.taunt());
-  }
-  Hero.prototype.massiveSwing = function(target) {
-    console.log(`${this.name} takes a massive swing at ${target.name}!`);
-    console.log(target.takeDamage(10));
-    return (target.hp < 1 ? target.destroy() : target.taunt());
-  }
-
-
-  function Villain(attr) {
-    Humanoid.call(this, attr);
-  }
-
-  Villain.prototype = Object.create(Humanoid.prototype);
+//   Hero.prototype = Object.create(Humanoid.prototype);
 
   
-  Villain.prototype.summonImp = function(target) {
-    console.log(`${this.name} summons an imp to attack ${target.name}!`);
-    console.log(target.takeDamage(7));
-    return (target.hp < 1 ? target.destroy() : target.taunt());
-  }
-  Villain.prototype.summonDragon = function(target) {
-    console.log(`${this.name} summons a dragon to attack ${target.name}!`);
-    console.log(target.takeDamage(15));
-    return (target.hp < 1 ? target.destroy() : target.taunt());
-  }
+//   Hero.prototype.heavySwing = function(target) {
+//     console.log(`${this.name} takes a heavy swing at ${target.name}!`);
+//     console.log(target.takeDamage(5));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+//   Hero.prototype.massiveSwing = function(target) {
+//     console.log(`${this.name} takes a massive swing at ${target.name}!`);
+//     console.log(target.takeDamage(10));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
 
 
-  const hero = new Hero({
-    createdAt: new Date(),
-    dimensions: {
-      length: 3,
-      width: 4,
-      height: 3
-    },
-    hp: 40,
-    name: 'Reddita',
-    team: 'The Common Good',
-    weapons: [
-      'Giant Sword',
-      'Shield',
-    ],
-    language: 'Common Tongue',
-  });
+//   function Villain(attr) {
+//     Humanoid.call(this, attr);
+//   }
 
-  const villain = new Villain({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 2,
-      height: 2
-    },
-    hp: 15,
-    name: 'Unfi',
-    team: 'The Common Evil',
-    weapons: [
-      'Great Staff',
-      'Orb of Destruction',
-    ],
-    language: 'Common Tongue',
-  });
+//   Villain.prototype = Object.create(Humanoid.prototype);
 
-  console.log(villain.summonDragon(hero)); // surprise attack
-  console.log(hero.heavySwing(villain)); // hero strikes back
-  console.log(villain.summonImp(hero)); // villain needs to recover for another dragon
-  console.log(hero.heavySwing(villain)); // hero strikes again
-  console.log(villain.summonDragon(hero)); // hero kills dragons on the daily just to bring home some food
-console.log(hero.massiveSwing(villain)); // hero slays villain
+  
+//   Villain.prototype.summonImp = function(target) {
+//     console.log(`${this.name} summons an imp to attack ${target.name}!`);
+//     console.log(target.takeDamage(7));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+//   Villain.prototype.summonDragon = function(target) {
+//     console.log(`${this.name} summons a dragon to attack ${target.name}!`);
+//     console.log(target.takeDamage(15));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+
+
+//   const hero = new Hero({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 3,
+//       width: 4,
+//       height: 3
+//     },
+//     hp: 40,
+//     name: 'Reddita',
+//     team: 'The Common Good',
+//     weapons: [
+//       'Giant Sword',
+//       'Shield',
+//     ],
+//     language: 'Common Tongue',
+//   });
+
+//   const villain = new Villain({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 2,
+//       width: 2,
+//       height: 2
+//     },
+//     hp: 15,
+//     name: 'Unfi',
+//     team: 'The Common Evil',
+//     weapons: [
+//       'Great Staff',
+//       'Orb of Destruction',
+//     ],
+//     language: 'Common Tongue',
+//   });
+
+//   console.log(villain.summonDragon(hero)); // surprise attack
+//   console.log(hero.heavySwing(villain)); // hero strikes back
+//   console.log(villain.summonImp(hero)); // villain needs to recover for another dragon
+//   console.log(hero.heavySwing(villain)); // hero strikes again
+//   console.log(villain.summonDragon(hero)); // hero kills dragons on the daily just to bring home some food
+// console.log(hero.massiveSwing(villain)); // hero slays villain
