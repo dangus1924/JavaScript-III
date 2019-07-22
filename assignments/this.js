@@ -41,14 +41,18 @@ console.log(result.name);
 // Principle 4
 
 // code example for Explicit Binding
-function Company(name, location, hours) {
-    this.name = name;
-    this.location = location;
-    this.hours = hours;
+let introduction = (language, code, food) => {
+    console.log(`My name is ${myName.name}, and I can speak ${language}, program in ${code}, and I like ${food}.`);
 }
 
-function Store(name, location, hours) {
-    Company.call(this, name, location, hours);
-    this.category = 'store';
-    console.log(`${this.name} is located at ${this.location} and it's hours are ${this.hours}.`);
-}
+let myName = {
+    name: "darren",
+    age: 25,
+    introduction: function() {
+        console.log(`My name is ${this.name} and I am ${this.age} years old.`);
+    }
+};
+
+let likes = ['picture', 'Javascript', 'teriyaki chicken'];
+
+introduction.apply(myName, likes);
