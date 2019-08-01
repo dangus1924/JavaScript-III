@@ -15,6 +15,13 @@
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
+function GameObject(attributes) {
+  this.createdAt = attributes.createdAt;
+  this.dimensions = attributes.dimensions;
+  }
+  GameObject.prototype.destroy = function() {
+    return `${this.name} was removed from the game!`;
+  }
 
 /*
   === CharacterStats ===
@@ -22,6 +29,17 @@
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
+function CharacterStats(stats) {
+  GameObject.call(this, stats);
+  this.healthPoints = stats.healthPoints;
+  this.name = stats.name;    
+}
+
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
+CharacterStats.prototype.takeDamage = function() {
+  return `${this.name} took damage!`;
+}
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -33,6 +51,22 @@
   * should inherit takeDamage() from CharacterStats
 */
  
+function Humanoid(human) {
+  GameObject.call(this,human)
+  CharacterStats.call(this, human);
+  this.team = human.team;
+  this.weapons = human.weapons;
+  this.language = human.language;
+  
+}
+
+Humanoid.prototype = Object.create(GameObject.prototype);
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+Humanoid.prototype.greet = function() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+}
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -41,7 +75,7 @@
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -102,9 +136,88 @@
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+
+//   function Hero(attr) {
+//     Humanoid.call(this, attr);
+//   }
+
+//   Hero.prototype = Object.create(Humanoid.prototype);
+
+  
+//   Hero.prototype.heavySwing = function(target) {
+//     console.log(`${this.name} takes a heavy swing at ${target.name}!`);
+//     console.log(target.takeDamage(5));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+//   Hero.prototype.massiveSwing = function(target) {
+//     console.log(`${this.name} takes a massive swing at ${target.name}!`);
+//     console.log(target.takeDamage(10));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+
+
+//   function Villain(attr) {
+//     Humanoid.call(this, attr);
+//   }
+
+//   Villain.prototype = Object.create(Humanoid.prototype);
+
+  
+//   Villain.prototype.summonImp = function(target) {
+//     console.log(`${this.name} summons an imp to attack ${target.name}!`);
+//     console.log(target.takeDamage(7));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+//   Villain.prototype.summonDragon = function(target) {
+//     console.log(`${this.name} summons a dragon to attack ${target.name}!`);
+//     console.log(target.takeDamage(15));
+//     return (target.hp < 1 ? target.destroy() : target.taunt());
+//   }
+
+
+//   const hero = new Hero({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 3,
+//       width: 4,
+//       height: 3
+//     },
+//     hp: 40,
+//     name: 'Reddita',
+//     team: 'The Common Good',
+//     weapons: [
+//       'Giant Sword',
+//       'Shield',
+//     ],
+//     language: 'Common Tongue',
+//   });
+
+//   const villain = new Villain({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 2,
+//       width: 2,
+//       height: 2
+//     },
+//     hp: 15,
+//     name: 'Unfi',
+//     team: 'The Common Evil',
+//     weapons: [
+//       'Great Staff',
+//       'Orb of Destruction',
+//     ],
+//     language: 'Common Tongue',
+//   });
+
+//   console.log(villain.summonDragon(hero)); // surprise attack
+//   console.log(hero.heavySwing(villain)); // hero strikes back
+//   console.log(villain.summonImp(hero)); // villain needs to recover for another dragon
+//   console.log(hero.heavySwing(villain)); // hero strikes again
+//   console.log(villain.summonDragon(hero)); // hero kills dragons on the daily just to bring home some food
+// console.log(hero.massiveSwing(villain)); // hero slays villain
